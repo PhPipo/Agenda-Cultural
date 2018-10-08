@@ -38,3 +38,4 @@ WORKDIR /app
 RUN composer install
 EXPOSE 8080
 CMD ["bin/console","server:run"]
+
