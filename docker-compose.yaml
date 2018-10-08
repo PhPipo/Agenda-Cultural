@@ -5,22 +5,7 @@ services:
     network_mode: host
     volumes:
     - .:/app
-    #depends_on:
-    #- db
     environment:
     - DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db
-    #- DATABASE_URL=mysql://manager:secret@127.0.0.1:3306/symfony
-    stdin_open: true
-    tty: true
-  #db:
-    #image: mariadb:10.3.9
-    #volumes:
-    #- data:/var/lib/mysql
-    #environment:
-    #- MYSQL_ROOT_PASSWORD=secret
-    #- MYSQL_DATABASE=symfony
-    #- MYSQL_USER=manager
-    #- MYSQL_PASSWORD=secret
-
 volumes:
   data:
