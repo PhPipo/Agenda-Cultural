@@ -2,7 +2,10 @@ version: "3"
 services:
   web:
     build: .
-    ports:
-      - 8080:8080
+    network_mode: host
     volumes:
-      - .:/app
+    - .:/app
+    environment:
+    - DATABASE_URL=sqlite:///%kernel.project_dir%/var/data.db
+volumes:
+  data:
