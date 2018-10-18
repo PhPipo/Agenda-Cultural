@@ -42,7 +42,7 @@ class Post
 
     public function __construct()
     {
-        $this->organizations = new ArrayCollection();
+
     }
 
     public function getId(): ?int

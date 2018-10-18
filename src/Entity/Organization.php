@@ -34,11 +34,6 @@ class Organization
     private $admins;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="organization", orphanRemoval=true)
-     */
-    private $posts;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Event", mappedBy="organization", orphanRemoval=true)
      */
     private $events;
@@ -106,36 +101,6 @@ class Organization
         return $this;
     }
 
-    /**
-     * @return Collection|Post[]
-     */
-    public function getPosts(): Collection
-    {
-        return $this->posts;
-    }
-
-    public function addPost(Post $post): self
-    {
-        if (!$this->posts->contains($post)) {
-            $this->posts[] = $post;
-            $post->setOrganization($this);
-        }
-
-        return $this;
-    }
-
-    public function removePost(Post $post): self
-    {
-        if ($this->posts->contains($post)) {
-            $this->posts->removeElement($post);
-            // set the owning side to null (unless already changed)
-            if ($post->getOrganization() === $this) {
-                $post->setOrganization(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Event[]
