@@ -19,7 +19,7 @@ class Post
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $title;
 
@@ -29,12 +29,6 @@ class Post
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Organization", inversedBy="posts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $organization;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="posts")
      */
     private $event;
@@ -42,7 +36,7 @@ class Post
 
     public function __construct()
     {
-        $this->organizations = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -72,11 +66,6 @@ class Post
         $this->description = $description;
 
         return $this;
-    }
-
-    public function getOrganization(): ?Organization
-    {
-        return $this->organization;
     }
 
     public function setOrganization(?Organization $organization): self
