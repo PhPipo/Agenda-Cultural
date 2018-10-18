@@ -144,13 +144,6 @@ class Event
         return $this->organization;
     }
 
-    public function setOrganization(?Organization $organization): self
-    {
-        $this->organization = $organization;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Post[]
      */
