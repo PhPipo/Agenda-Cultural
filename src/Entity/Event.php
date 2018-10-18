@@ -139,6 +139,13 @@ class Event
         return $this;
     }
 
+    public function setOrganization(Organization $organization)
+    {
+        $this->organization=$organization;
+
+        return $this;
+    }
+
     public function getOrganization(): ?Organization
     {
         return $this->organization;

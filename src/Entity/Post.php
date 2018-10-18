@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,7 +17,7 @@ class Post
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      */
     private $title;
 
@@ -27,12 +25,6 @@ class Post
      * @ORM\Column(type="text")
      */
     private $description;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Organization", inversedBy="posts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $organization;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="posts")
@@ -70,18 +62,6 @@ class Post
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getOrganization(): ?Organization
-    {
-        return $this->organization;
-    }
-
-    public function setOrganization(?Organization $organization): self
-    {
-        $this->organization = $organization;
 
         return $this;
     }
