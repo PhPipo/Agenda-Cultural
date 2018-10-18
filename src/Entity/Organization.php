@@ -42,7 +42,6 @@ class Organization
     public function __construct()
     {
         $this->admins = new ArrayCollection();
-        $this->posts = new ArrayCollection();
         $this->events = new ArrayCollection();
     }
 
