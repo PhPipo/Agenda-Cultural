@@ -5,7 +5,7 @@ namespace App\Messenger\Organization;
 use App\Entity\Organization;
 use App\Repository\OrganizationRepository;
 
-class NewOrganizationCommandHandler
+class RemoveOrganizationCommandHandler
 {
     /**
      * @var OrganizationRepository
