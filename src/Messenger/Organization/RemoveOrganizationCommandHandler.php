@@ -18,29 +18,15 @@ class NewOrganizationCommandHandler
     }
 
 
-    function __invoke(NewOrganizationCommand $command)
+    function __invoke(RemoveOrganizationCommand $command)
     {
-        $name = $command->getName();
-        $description = $command->getDescription();
-        $admins = $command->getAdmins();
+        $id = $command->getId();
 
 
-        if ( !$name )
+        if ( !$id )
         {
-            throw new \Exception('name not valid.');
+            throw new \Exception('id not valid.');
         }
-        if ( !$name )
-        {
-            throw new \Exception('description not valid.');
-        }
-        if ( !$admins )
-        {
-            throw new \Exception('no admin passed, at least one must be provided.');
-        }
-
-
-
-        $organization = new Organization();
 
         $organization->setName($name);
         $organization->setDescription($description);
