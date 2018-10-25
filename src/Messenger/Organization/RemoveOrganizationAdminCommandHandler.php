@@ -2,6 +2,7 @@
 
 namespace App\Messenger\Organization;
 
+use App\Entity\Organization;
 use App\Repository\OrganizationRepository;
 
 class RemoveOrganizationAdminCommandHandler
@@ -18,7 +19,7 @@ class RemoveOrganizationAdminCommandHandler
     }
 
 
-    function __invoke(RemoveOrganizationAdminCommand $command)
+    function __invoke(RemoveOrganizationAdminCommand $command):Organization
     {
         $id = $command->getId();
         $adminToDelete = $command->getAdminToDelete();
@@ -38,6 +39,8 @@ class RemoveOrganizationAdminCommandHandler
         }
 
         $this->repository->remove($organization);
+
+        return $organization;
     }
 
 }

@@ -18,7 +18,7 @@ class NewOrganizationCommandHandler
     }
 
 
-    function __invoke(RemoveOrganizationCommand $command)
+    function __invoke(RemoveOrganizationCommand $command):Organization
     {
         $id = $command->getId();
 
@@ -37,6 +37,8 @@ class NewOrganizationCommandHandler
         }
 
         $this->repository->add($organization);
+
+        return $organization;
     }
 
 }

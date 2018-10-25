@@ -2,6 +2,7 @@
 
 namespace App\Messenger\Organization;
 
+use App\Entity\Organization;
 use App\Repository\OrganizationRepository;
 
 class ModifyOrganizationDescriptionCommandHandler
@@ -18,7 +19,7 @@ class ModifyOrganizationDescriptionCommandHandler
     }
 
 
-    function __invoke(ModifyOrganizationDescriptionCommand $command)
+    function __invoke(ModifyOrganizationDescriptionCommand $command):Organization
     {
         $id = $command->getId();
         $newDescription = $command->getNewDescription();
@@ -44,6 +45,7 @@ class ModifyOrganizationDescriptionCommandHandler
         $organization->setDescription($newDescription);
 
         $this->repository->modify($organization);
+        return $organization;
     }
 
 }

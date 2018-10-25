@@ -18,7 +18,7 @@ class NewOrganizationCommandHandler
     }
 
 
-    function __invoke(NewOrganizationCommand $command)
+    function __invoke(NewOrganizationCommand $command):Organization
     {
         $name = $command->getName();
         $description = $command->getDescription();
@@ -51,6 +51,7 @@ class NewOrganizationCommandHandler
         }
 
         $this->repository->add($organization);
+        return $organization;
     }
 
 }

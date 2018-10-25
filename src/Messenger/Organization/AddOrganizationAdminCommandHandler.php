@@ -2,6 +2,7 @@
 
 namespace App\Messenger\Organization;
 
+use App\Entity\Organization;
 use App\Repository\OrganizationRepository;
 
 class AddOrganizationAdminCommandHandler
@@ -18,7 +19,7 @@ class AddOrganizationAdminCommandHandler
     }
 
 
-    function __invoke(AddOrganizationAdminCommand $command)
+    function __invoke(AddOrganizationAdminCommand $command):Organization
     {
         $id = $command->getId();
         $newAdmin = $command->getNewAdmin();
@@ -44,6 +45,8 @@ class AddOrganizationAdminCommandHandler
         $organization->addAdmin($newAdmin);
 
         $this->repository->modify($organization);
+
+        return $organization;
     }
 
 }
